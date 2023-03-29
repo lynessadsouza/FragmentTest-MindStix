@@ -11,7 +11,7 @@ import com.example.fragmenttest.databinding.FragmentEBinding
 
 
 class FragmentE : Fragment() {
-    private lateinit var binding  : FragmentEBinding
+    private lateinit var binding: FragmentEBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -20,20 +20,14 @@ class FragmentE : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentEBinding.inflate(inflater, container, false)
         binding.fragmentButtonE.setOnClickListener {
             val fragment = FragmentA()
             fragmentManager?.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE)
             val transaction = fragmentManager?.beginTransaction()
-            transaction?.replace(R.id.nav_controller,fragment)?.commit()
+            transaction?.replace(R.id.nav_controller, fragment)?.commit()
         }
-
         return binding.root
-        // Inflate the layout for this fragment
-       // return inflater.inflate(R.layout.fragment_e, container, false)
     }
-
-
-
 }
